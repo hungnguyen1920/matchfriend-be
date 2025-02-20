@@ -21,22 +21,9 @@ services:
       timeout: 5s
       retries: 5
 
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: matchfriend-pgadmin
-    environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-admin@matchfriend.com}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
-    ports:
-      - "5050:80"
-    depends_on:
-      - postgres
-    networks:
-      - matchfriend-network
-
 networks:
   matchfriend-network:
     driver: bridge
 
 volumes:
-  postgres_data: 
+  postgres_data:
